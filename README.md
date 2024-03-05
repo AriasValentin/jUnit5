@@ -21,3 +21,10 @@ Curso De jUnit5.
 # assertNotSame() -> Si no son el mismo.
 
 # metodo fail() -> fail("msj personalizado dependiendo el error captado por assert";
+#assertThrows -> Exception dentro del metodo @Test.
+
+EJ:
+   @Test
+    public void ejemploThrow(){
+        assertThrows(ArithmeticException.class,()->calculadora.divideByZero(2,0),"Nose puede dividir por 0.");
+    }
