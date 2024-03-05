@@ -1,4 +1,23 @@
 # jUnit5
 Curso De jUnit5.
 
-entrar a la clase, goTO --> test
+1.entrar a la clase, goTO --> test, crea clase especifica para el test.
+2.Crear metodo propio dentro de la clase generada en la carpeta test, con la etiqueta @Test.
+3. run "calculatorTest"
+4. verde ok, rojo problemas..
+5.@BeforeEach --> Metodos con esta etiqueta se ejecutan antes que cualquier otro.
+
+# @AfterEach --> para liberar recursos.
+6. tener en cuenta que el beforeEach y Aftereach se ejecutan antes y despues de cada metodo test en particular!!
+
+# el metodo -> assertEquals() permite comparar 2 estados.  EJ --> assertEquals(resultadoEsperado,resultadoActual)
+# TIP -> tener solo un metodo assert en cada metodo.
+
+# assertEquals() , con msj, sin msj tiene varios parametros. EJ --> assertEquals(resultadoEsperado,resultadoActual,"mensaje pred")
+# assertEquals(1,1.4,0.5); expected-actual-delta.
+# assertEquals(1,1.6,0.5); --> falla!!
+# assertTrue() ->  assertTrue(2 == 1);
+# assertSame() -> Si son el mismo objeto.
+# assertNotSame() -> Si no son el mismo.
+
+# metodo fail() -> fail("msj personalizado dependiendo el error captado por assert";
