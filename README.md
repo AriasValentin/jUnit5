@@ -28,3 +28,18 @@ EJ:
     public void ejemploThrow(){
         assertThrows(ArithmeticException.class,()->calculadora.divideByZero(2,0),"Nose puede dividir por 0.");
     }
+
+# @Disable("")
+# DisplayName ("mensaje de metodo, cambia al original creado.")
+
+# assertAll --> permite ejecutar todos los assert puestos , por mas que fallen.
+EJ->
+    @Test
+    public void addAssertAllTest(){
+
+        assertAll(
+            ()->assertEquals(30,calculadora.sumar(10,20)),   ----------------------------> ESTO ES DESPRECIABLE, YA QUE UNA BUENA PRACTICA ES TESTEAR UNA COSA A LA VEZ !!
+            ()->assertEquals(2,calculadora.sumar(10,20)),
+            ()->assertEquals(9,calculadora.sumar(10,20))
+        );
+   
