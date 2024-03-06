@@ -26,4 +26,11 @@ public class Calculadora {
         resultado = num1 - num2;
         return resultado;
     }
+    public void longTaskOperation(){
+        try {
+            Thread.sleep(1000);
+        }
+        catch (Exception e){
+        }
+    }
 }

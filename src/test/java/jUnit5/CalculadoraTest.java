@@ -1,6 +1,12 @@
 package jUnit5;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.time.Duration;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +20,9 @@ class CalculadoraTest {
     public static void beforeAllTest(){
 
         calculadoraStatic = new Calculadora();
+        System.out.println("@beforeAllTest -> setUp()");
     }
+
 
 
     @BeforeEach
@@ -125,6 +133,36 @@ class CalculadoraTest {
         public void ejemplo3(){
             assertEquals(2,calculadora.dividir(10,3));
         }
+    }
+
+    @AfterAll
+    public static void afterAllTest(){
+
+        calculadoraStatic = null;
+        System.out.println("@afterAllTest -> afterAllTest()");
+    }
+
+    @ParameterizedTest(name = "{index} => a={0} , b={1} , sum={2}")
+    @MethodSource("addProviderData") //ESTO PUEDE SER EL CONSUMO DE UNA BASE DE DATOS, METODO etc.
+    public void addParametrizedTest(int a , int b , int sum){
+        assertEquals(sum,calculadora.sumar(a,b));
+
+    }
+
+    private static Stream<Arguments> addProviderData(){
+        return Stream.of(
+            Arguments.of(6,2,8),
+            Arguments.of(-6,2,8),
+        Arguments.of(6,2,50));
+    }
+
+
+
+    @Test
+    public void timeOutTest(){
+        assertTimeout(Duration.ofMillis(500), ()->{
+            calculadora.longTaskOperation();
+        });
     }
 
 }
