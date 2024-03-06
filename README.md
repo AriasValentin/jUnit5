@@ -5,6 +5,8 @@ Curso De jUnit5.
 2.Crear metodo propio dentro de la clase generada en la carpeta test, con la etiqueta @Test.
 3. run "calculatorTest"
 4. verde ok, rojo problemas..
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 5.@BeforeEach --> Metodos con esta etiqueta se ejecutan antes que cualquier otro.
 
 # @AfterEach --> para liberar recursos.
@@ -44,7 +46,16 @@ EJ->
         );
  # @BeforeAll --> metodo estatico que se ejecuta antes que todo siempre. -> sirve mucho para testera bdd o cosas super necesarias antes de realizar otras operaciones.
  # @AfterAll --> metodo estatico al igual que beforeAll y mas que nada se usa para liberar recursos.
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
  -- Test parametrizados --
 
- 
+# VER DEPENDENCIAS DEL POM, en esta la dependencia jupiter-params. 
+
+# @ @ParameterizedTest(name = "{index} => a={0} , b={1} , sum={2}")
+  @MethodSource("addProviderData") //ESTO PUEDE SER EL CONSUMO DE UNA BASE DE DATOS, METODO etc.
+ public void addParametrizedTest(int a , int b , int sum){
+
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Existe la forma de poner un tiempo para que haga un test, en caso contrario se ejecutara el siguiente.
+
+
