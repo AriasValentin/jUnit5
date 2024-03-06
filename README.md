@@ -42,4 +42,4 @@ EJ->
             ()->assertEquals(2,calculadora.sumar(10,20)),
             ()->assertEquals(9,calculadora.sumar(10,20))
         );
-   
+ # @BeforeAll --> se ejecuta antes que todo siempre. -> sirve mucho para testera bdd o cosas super necesarias antes de realizar otras operaciones.
